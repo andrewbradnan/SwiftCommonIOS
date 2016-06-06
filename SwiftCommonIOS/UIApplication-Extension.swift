@@ -41,9 +41,11 @@ extension UIApplication {
             let imagesDict = i as! [[String: String]]
             
             for dict in imagesDict {
-                let imageSize = CGSizeFromString(dict["UILaunchImageSize"]!)    // TODO remove !
-                if (CGSizeEqualToSize(imageSize, viewSize) && viewOrientation == dict["UILaunchImageOrientation"]) {
-                    return dict["UILaunchImageName"]
+                if let szImageSize = dict["UILaunchImageSize"] {
+                    let imageSize = CGSizeFromString(szImageSize)
+                    if (CGSizeEqualToSize(imageSize, viewSize) && viewOrientation == dict["UILaunchImageOrientation"]) {
+                        return dict["UILaunchImageName"]
+                    }
                 }
             }
         }
