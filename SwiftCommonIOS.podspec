@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   
   # only because we are using frameworks
   s.platform     = :ios, "8.0"
-  s.source       = { :git => "https://bitbucket.org/NullPlague/swiftcommonios.git", :tag => s.version }
+  s.source       = { :git => "https://github.com/phyngit/swiftcommonios.git", :tag => s.version }
   s.source_files  = "Classes", "SwiftCommonIOS/**/*.{swift}"
   # s.resources = "SwiftCommonIOS/**/*.{png,jpeg,jpg,storyboard,xib}"
 
