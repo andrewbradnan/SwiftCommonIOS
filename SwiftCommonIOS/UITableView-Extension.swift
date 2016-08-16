@@ -10,7 +10,7 @@
 import UIKit
 
 extension UITableView {
-    public func reloadData<T: Hashable>(new: [T], old: [T]) {
+    public func mergeData<T: Hashable>(new: [T], old: [T]) {
         /**
          1. Delete sections
          2. Delete rows
