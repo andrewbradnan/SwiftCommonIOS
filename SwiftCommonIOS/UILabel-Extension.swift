@@ -10,10 +10,10 @@
 import Foundation
 
 extension UILabel {
-    internal func doHide(hide: Bool) {
-        self.hidden = hide
+    internal func doHide(_ hide: Bool) {
+        self.isHidden = hide
         self.accessibilityElementsHidden = hide
-        self.enabled = !hide
+        self.isEnabled = !hide
         self.isAccessibilityElement = !hide
     }
     

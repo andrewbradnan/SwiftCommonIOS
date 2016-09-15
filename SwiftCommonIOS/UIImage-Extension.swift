@@ -16,28 +16,28 @@ extension UIImage {
      
      - Parameter ratio: Ratio to scale by.
     */
-    public func scaleBy(ratio: Double) -> UIImage {
+    public func scaleBy(_ ratio: Double) -> UIImage {
         let fratio = CGFloat(ratio)
-        let scaledSize = CGSizeMake(self.size.width * fratio, self.size.height * fratio)
+        let scaledSize = CGSize(width: self.size.width * fratio, height: self.size.height * fratio)
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         let bitmapBytesPerRow = Int(size.width * 4)
         
         // The output context.
         UIGraphicsBeginImageContext(scaledSize)
-        let context = CGBitmapContextCreate (nil,
-                                             Int(scaledSize.width),
-                                             Int(scaledSize.height),
-                                             8,      // bits per component
-            bitmapBytesPerRow,
-            colorSpace,
-            CGBitmapInfo(rawValue: CGImageAlphaInfo.PremultipliedLast.rawValue).rawValue)
+        let context = CGContext (data: nil,
+                                             width: Int(scaledSize.width),
+                                             height: Int(scaledSize.height),
+                                             bitsPerComponent: 8,      // bits per component
+            bytesPerRow: bitmapBytesPerRow,
+            space: colorSpace,
+            bitmapInfo: CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue).rawValue)
         
         // Scale.
-        CGContextScaleCTM(context, fratio * 1.01, fratio * 1.01)
-        self.drawAtPoint(CGPointZero)
+        context?.scaleBy(x: fratio * 1.01, y: fratio * 1.01)
+        self.draw(at: CGPoint.zero)
         
         let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return scaledImage
+        return scaledImage!
     }
 }

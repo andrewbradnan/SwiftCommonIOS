@@ -11,8 +11,8 @@ import Foundation
 
 extension UIView {
     /// Add tap handler
-    public func addTarget(target: AnyObject, action: Selector) {
-        self.userInteractionEnabled = true
+    public func addTarget(_ target: AnyObject, action: Selector) {
+        self.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target:target, action:action)
         self.addGestureRecognizer(tap)
     }

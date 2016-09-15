@@ -16,34 +16,34 @@ extension UIApplication {
     public var deviceOrientation : UIDeviceOrientation {
         get {
             switch self.statusBarOrientation {
-            case .Portrait:
-                return .PortraitUpsideDown
-            case .LandscapeLeft:
-                return .LandscapeRight
-            case .LandscapeRight:
-                return .LandscapeLeft
+            case .portrait:
+                return .portraitUpsideDown
+            case .landscapeLeft:
+                return .landscapeRight
+            case .landscapeRight:
+                return .landscapeLeft
             default:
-                return .Portrait
+                return .portrait
             }
         }
     }
     
-    internal func splashImageNameForOrientation(orientation: UIDeviceOrientation) -> String? {
-        var viewSize = UIScreen.mainScreen().bounds.size
+    internal func splashImageNameForOrientation(_ orientation: UIDeviceOrientation) -> String? {
+        var viewSize = UIScreen.main.bounds.size
         
         let viewOrientation = orientation.isPortrait ? "Portrait" : "Landscape"
         if orientation.isLandscape {
             viewSize = viewSize.swap()
         }
         
-        if let info = NSBundle.mainBundle().infoDictionary {
+        if let info = Bundle.main.infoDictionary {
             let i = info["UILaunchImages"]!
             let imagesDict = i as! [[String: String]]
             
             for dict in imagesDict {
                 if let szImageSize = dict["UILaunchImageSize"] {
                     let imageSize = CGSizeFromString(szImageSize)
-                    if (CGSizeEqualToSize(imageSize, viewSize) && viewOrientation == dict["UILaunchImageOrientation"]) {
+                    if (imageSize.equalTo(viewSize) && viewOrientation == dict["UILaunchImageOrientation"]) {
                         return dict["UILaunchImageName"]
                     }
                 }

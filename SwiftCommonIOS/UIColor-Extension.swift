@@ -18,7 +18,7 @@ extension UIColor {
      let c = UIColor.fromHex(0x223344)
      '''
      */
-    public class func fromHex(rgbValue:UInt32, alpha:Double = 1.0) -> UIColor {
+    public class func fromHex(_ rgbValue:UInt32, alpha:Double = 1.0) -> UIColor {
         
         let red = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
         let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
@@ -41,7 +41,7 @@ extension UIColor {
     }
     
     /// Darken anything over this brightness.
-    public func darken(b: CGFloat) -> UIColor {
+    public func darken(_ b: CGFloat) -> UIColor {
         let hsba = self.hsba
         
         if hsba.b > b {

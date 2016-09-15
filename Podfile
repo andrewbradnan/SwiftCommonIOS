@@ -1,5 +1,6 @@
 platform :ios, '8.0'
-source 'https://bitbucket.org/wemo/wemopodspecs.git'
+source 'https://github.com/phyngit/WemoPodSpecs.git'
+source 'https://github.com/CocoaPods/Specs.git'
 
 use_frameworks!
 

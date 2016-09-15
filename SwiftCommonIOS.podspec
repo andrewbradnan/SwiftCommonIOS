@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SwiftCommonIOS"
-  s.version      = "0.0.2"
+  s.version      = "0.0.5"
   s.summary      = "Common Swift IOS extensions and helpers."
   s.description  = <<-DESC
     Swift extensions and helpers for OS.  UIApplication, UIView etc.

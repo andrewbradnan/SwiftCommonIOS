@@ -12,15 +12,15 @@ import SwiftCommon
 
 extension UIViewController {
     /// Show error...
-    public func showError(title: String, err: String, onOK: Block? = nil) {
+    public func showError(_ title: String, err: String, onOK: Block? = nil) {
         let alert = UIAlertController(title: title,
                                       message: err,
-                                      preferredStyle: UIAlertControllerStyle.Alert)
+                                      preferredStyle: UIAlertControllerStyle.alert)
         
-        alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in onOK?() })
+        alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in onOK?() })
         
-        dispatch_async(dispatch_get_main_queue(), {
-            self.presentViewController(alert, animated: true, completion: nil)
+        DispatchQueue.main.async(execute: {
+            self.present(alert, animated: true, completion: nil)
         })
     }
 }
