@@ -8,6 +8,7 @@
  */
 
 import UIKit
+import SwiftCommon
 
 extension UITableView {
     public func mergeData<T: Hashable>(new: [T], old: [T]) {
@@ -28,23 +29,23 @@ extension UITableView {
         let oldSet = Set<T>(old)
         assert(oldSet.count == old.count)
         
-        let added = newSet.subtract(oldSet)
-        let removed = oldSet.subtract(newSet)
+        let added = newSet.subtracting(oldSet)
+        let removed = oldSet.subtracting(newSet)
         
-        let removedRows = findIndexes(removed, array: old).sort{ $0.row > $1.row }
-        let addedRows = findIndexes(added, array: new).sort{ $0.row < $1.row }
+        let removedRows = findIndexes(set: removed, array: old).sorted{ $0.row > $1.row }
+        let addedRows = findIndexes(set: added, array: new).sorted{ $0.row < $1.row }
         
-        self.deleteRowsAtIndexPaths(removedRows, withRowAnimation: .Top)
-        self.insertRowsAtIndexPaths(addedRows, withRowAnimation: .Top)
+        self.deleteRows(at: removedRows, with: .top)
+        self.insertRows(at: addedRows, with: .top)
         
         self.endUpdates()
     }
 }
 
-func findIndexes<T>(set: Set<T>, array: [T]) -> [NSIndexPath] {
+func findIndexes<T>(set: Set<T>, array: [T]) -> [IndexPath] {
     return set.flatMap{ ssid in
         if let idx = array.indexOf(ssid) {
-            return NSIndexPath(forRow: idx, inSection: 0)
+            return IndexPath(row: idx, section: 0)
         }
         else {
             return nil
