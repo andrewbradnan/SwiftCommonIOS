@@ -10,15 +10,12 @@ Pod::Spec.new do |s|
   s.homepage     = "https://bitbucket.org/NullPlague/swiftcommonios"
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author             = "Andrew Bradnan"
-  s.social_media_url   = "http://twitter.com/NullPlague"
   
   # only because we are using frameworks
   s.platform     = :ios, "8.0"
-  s.source       = { :git => "https://github.com/phyngit/swiftcommonios.git", :tag => s.version }
+  s.source       = { :git => "https://github.com/andrewbradnan/swiftcommonios.git", :tag => s.version }
   s.source_files  = "Classes", "SwiftCommonIOS/**/*.{swift}"
-  # s.resources = "SwiftCommonIOS/**/*.{png,jpeg,jpg,storyboard,xib}"
 
   s.dependency 'SwiftCommon', '~> 1.0.0'
-
 end
 
