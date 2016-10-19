@@ -495,7 +495,7 @@
 				INFOPLIST_FILE = SwiftCommonIOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.belkin.SwiftCommon.SwiftCommonIOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.andrewbradnan.swift.common.iOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -518,7 +518,7 @@
 				INFOPLIST_FILE = SwiftCommonIOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.belkin.SwiftCommon.SwiftCommonIOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.andrewbradnan.swift.common.iOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -529,6 +529,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7DDB642CA1615A0143602E14 /* Pods-SwiftCommonIOSTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = Y35NLYC4JJ;
 				INFOPLIST_FILE = SwiftCommonIOSTests/Info.plist;
@@ -543,6 +544,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4F82D4B31CBE6392DB2B28F7 /* Pods-SwiftCommonIOSTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = Y35NLYC4JJ;
 				INFOPLIST_FILE = SwiftCommonIOSTests/Info.plist;
